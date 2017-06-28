@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <title>Document</title>
+    <link rel="stylesheet/less" href="./css/index.less">
+    <link rel="stylesheet/less" href="./css/productlist.less"/>
+    <link rel="stylesheet/less" href="./css/bijia.less"/>
+    <script type="text/javascript" src="./lib/less/less.js"></script>
+
+</head>
+<body>
+<!--头部-->
+<header id="header">
+    <a href="#" class="logo">
+        <img src="images/header_logo.png" alt="" class="lo"/>
+    </a>
+    <a href="#" class="app">
+        <img src="images/header_app.png" alt="" class="ap"/>
+    </a>
+</header>
+<!--搜索-->
+<section id="search">
+    <form action="">
+        <input type="text" placeholder="请输入你想比价的商品"/>
+        <input type="button" value="搜索"/>
+    </form>
+</section>
+
+<section id="lefoot">
+    <ol class="breadcrumb"></ol>
+</section>
+
+<section class="detail">
+            <!--<h1>-->
+                <!--乐视TV(Letv)S50 Air全配版2D 50英寸 全高清LED液晶电视-->
+            <!--</h1>-->
+     <div class="img-circle">
+         <img src="images/genguo.png" alt=""/>
+     </div>
+    <div  class="house">
+        <a href="#">
+            <img src="images/sc.jpg" alt=""/>
+        </a>
+    </div>
+    <div class="ullis">
+        <ul>
+            <li class="col-xs-4">比较购买</li>
+            <li class="col-xs-4">产品参数</li>
+            <li class="col-xs-4">评价(1314)</li>
+        </ul>
+    </div>
+    <div class="plist">
+
+    </div>
+        <div class="ya">
+
+            * 实际价格以各网站列出的实时售价为准，我们提供的价格可能有数小时至数日的延迟。
+
+        </div>
+    <div class="bjgm clearfix">
+        <ul>
+            <li class="col-xs-4">比价购买</li>
+            <li class="col-xs-4">产品参数</li>
+            <li class="col-xs-4">优选评价</li>
+        </ul>
+    </div>
+    <div class="product-com-title">
+       <p>网友评价</p>
+    </div>
+
+
+                <!--<div class="comment">-->
+                    <!--<ul>-->
+                        <!--<li>-->
+                            <!--<div>-->
+                                <!--<span>真***算</span>-->
+                                <!--<span>2016/4/16</span>-->
+                            <!--</div>-->
+                            <!--<div><span>购买自：京东商城</span></div>-->
+                            <!--<div>用了一段时间才来评价，总体感觉一般般吧，和以前的飞利浦已经今非昔比了，这是个不带网络功能的电视机，屏幕材质写的是硬屏，但具体是什么硬屏参数没有写，估计不敢写，不过色彩还可以，音质真的不怎么样，能用好点的扬声器吗?几十块钱的音乐播放器声音都比这好，节省成本也不能这样省法，声音听着怪怪的。还有元宵节活动送u盘，结果没送，忽悠人啊！</div>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+
+
+
+</section>
+
+</body>
+<script type="text/html" id="ol">
+    {{each result as value}}
+    <li><a href="#">首页</a></li>
+    <li><a href="#">{{value.category}}</a></li>
+    <li class="active">123</li>
+    {{/each}}
+</script>
+<script type="text/html" id="let">
+    {{if result}}
+            {{each result as value}}
+                        <h1>
+                        {{value.productName}}
+                        </h1>
+                        <div class="img-circle">
+                        {{#value.productImg}}
+                        </div>
+                        <div class="ullis">
+                            <ul>
+                                <li class="col-xs-4">比较购买</li>
+                                <li class="col-xs-4">产品参数</li>
+                                <li class="col-xs-4">评价(1314)</li>
+                            </ul>
+                        </div>
+                        <div class="plist">
+                    {{#value.bjShop}}
+                        </div>
+                        <div class="ya">
+
+                        * 实际价格以各网站列出的实时售价为准，我们提供的价格可能有数小时至数日的延迟。
+
+                        </div>
+                             <div class="product-com-title">
+                             <p>网友评价</p>
+                             </div>
+                        <div class="llll">
+
+                        </div>
+    <div class="YH">
+        <a href="#">查看更多评价</a>
+    </div>
+    <div id="footer">
+        <div class="fhD">
+            <ul>
+                <li><a href="#">登录</a></li>
+                <li><a href="#">注册</a></li>
+                <li><a href="#header">
+                    <img src="images/top.jpg" alt=""/>
+                    返回顶部</a>
+                </li>
+            </ul>
+        </div>
+        <div class="app">
+            <div class="cen">
+            <span>
+                手机下载APP 慢慢买手机版 --掌上比价平台</span>
+            </div>
+            <p>m.manmanbuy.com</p>
+        </div>
+    </div>
+            {{/each}}
+    {{/if}}
+</script>
+<script type="text/html" id="pj">
+
+              {{if result}}
+                    {{each result as value}}
+              <div class="comment">
+              <ul>
+              <li>
+              <div>
+              <span>{{value.comName}}</span>
+              <span>{{value.comTime}}</span>
+              </div>
+              <div><span>{{value.comFrom}}</span></div>
+              <div>{{value.comContent}}</div>
+              </li>
+              </ul>
+              </div>
+                    {{/each}}
+                {{/if}}
+</script>
+<script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="./lib/template.js"></script>
+<script src="./js/bijia.js"></script>
+<script>
+    $(function(){
+        var categoryd=getQueryString("categoryId");
+//        console.log(categoryd);
+        categoryId(categoryd);
+        function categoryId(categoryd){
+            $.ajax({
+                url:"http://127.0.0.1:3000/api/getcategorybyid",
+                 data:{"categoryid":categoryd},
+                 success:function(data){
+                    var html=template("ol",data);
+                    $(".breadcrumb").html(html);
+                 }
+            })
+        }
+
+
+
+        var product=getQueryString("productId");
+
+        productid(product);
+        function productid(product){
+            $.ajax({
+                url:"http://127.0.0.1:3000/api/getproduct",
+                data:{"productid":product},
+                success:function(data){
+                    console.log(data);
+                    var bjShop=data.result[0].bjShop;
+                    $(".plist").html(bjShop);
+                        var price=data.result[0].productName.split(" ")[0];
+                    var lett=template("let",data);
+                    $(".detail").html(lett);
+                    $(".active").html(price);
+                    getQueryString("productid")
+                }
+            })
+        }
+        produ(product);
+        function produ(product){
+            $.ajax({
+                url:"http://127.0.0.1:3000/api/getproductcom"
+                ,data:{"productid":product},
+                success:function(data){
+                    console.log(data);
+                    var pj=template("pj",data);
+                    console.log(pj);
+                    $(".llll").html(pj);
+//                    console.log(pj)
+                }
+            })
+        }
+
+
+
+
+        function getQueryString(name) {
+            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return null;
+        }
+    })
+</script>
+
+</html>

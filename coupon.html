@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet/less" href="./css/coupon.less"/>
+
+    <script type="text/javascript" src="./lib/less/less.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<header id="header">
+    <h1>优惠卷</h1>
+</header>
+<div class="kdj">
+    <ul>
+        <!--<li class="col-xs-6">-->
+            <!--<a href="">-->
+                <!--<img src="images/kdj.jpg" alt=""/>-->
+                <!--<p>肯德基</p>-->
+            <!--</a>-->
+        <!--</li>-->
+        <!--<li class="col-xs-6">-->
+            <!--<a href="">-->
+                <!--<img src="images/kdj.jpg" alt=""/>-->
+                <!--<p>肯德基</p>-->
+            <!--</a>-->
+        <!--</li>-->
+        <!--<li class="col-xs-6">-->
+            <!--<a href="">-->
+                <!--<img src="images/kdj.jpg" alt=""/>-->
+                <!--<p>肯德基</p>-->
+            <!--</a>-->
+        <!--</li>-->
+        <!--<li class="col-xs-6" >-->
+            <!--<a href="">-->
+                <!--<img src="images/kdj.jpg" alt=""/>-->
+                <!--<p>肯德基</p>-->
+            <!--</a>-->
+        <!--</li>-->
+    </ul>
+</div>
+<section id="footer">
+    <div class="fhD">
+        <ul>
+            <li class="col-xs-4"><a href="#">登录</a></li>
+            <li class="col-xs-4"><a href="#">注册</a></li>
+            <li class="col-xs-4"><a href="#header">
+                <img src="images/top.jpg" alt=""/>
+                返回顶部</a>
+            </li>
+        </ul>
+    </div>
+    <div class="app">
+        <div class="cen">
+            <span>手机下载APP 慢慢买手机版 --掌上比价平台</span>
+        </div>
+        <p>m.manmanbuy.com</p>
+    </div>
+</section>
+</body>
+<script type="text/html" id="uls">
+             {{each result as value i}}
+             <li class="col-xs-6" >
+             <a href="couponproduct.html?couponId={{value.couponId}}">
+             <img src="{{#value.couponImg}}" alt=""/>
+             <p>{{value.couponTitle}}</p>
+             </a>
+             </li>
+            {{/each}}
+</script>
+<script src="./lib/template.js"></script>
+<script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    get();
+    function get(){
+        $.ajax({
+            url:"http://127.0.0.1:3000/api/getcoupon",
+            success:function(data){
+                console.log(data);
+                var html=template("uls",data);
+                console.log(html);
+                $(".kdj>ul").html(html);
+            }
+        })
+    }
+</script>
+</html>

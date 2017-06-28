@@ -1,0 +1,34 @@
+.teevee .breadcrumb {
+  margin-bottom: 10px;
+}
+.teevee .breadcrumb li:nth-child(3) {
+  padding: 0 5px;
+  color: #000000;
+}
+.breadcrumb > li + li:before {
+  padding: 0 5px;
+  color: #000000;
+  content: ">";
+}
+.rm {
+  font-size: 16px;
+  background-color: #eee;
+  margin: 10px 5px;
+  height: 40px;
+  border: 1px solid #ccc;
+  line-height: 40px;
+  padding-left: 10px;
+  color: #874604;
+}
+#panle_gri .panel-group {
+  margin-bottom: 10px;
+}
+#panle_gri .panel-group .panel {
+  border-radius: 0;
+  margin-bottom: 5px;
+}
+#panle_gri .panel-group .panel .panel-heading {
+  border: 0;
+  border-radius: 0;
+  padding: 10px 0;
+}

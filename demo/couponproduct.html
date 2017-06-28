@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--引入第三方框架UI-->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet/less" href="./css/base.less">
+    <link rel="stylesheet/less" href="./css/couponproduct.less">
+    <script type="text/javascript" src="./lib/less/less.js"></script>
+    <title>慢慢买</title>
+</head>
+<body>
+<!--头部-->
+<header id="header">
+    <div class="logo">
+        <span><a href="coupon.html"><</a></span>
+        <p>肯德基优惠券</p>
+    </div>
+    <div class="app">
+        <img src="./images/header_app.png" alt=""/>
+    </div>
+</header>
+<div class="diancan">
+    <p>--点餐前出示手机中的优惠券,即可享受优惠--</p>
+</div>
+<div class="youHuiH">
+    <div class="media">
+        <div class="media-left">
+            <a href="#">
+                <img src="images/ic_bcj.png" alt="移动端凑单品：海天 鲜味 生抽 1.28L">
+            </a>
+        </div>
+        <div class="media-body">
+            <h5>移动端凑单品：海天 鲜味 生抽 1.28L</h5>
+            <p class="price">10.9元</p>
+            <span class="form">京东商城&nbsp;|&nbsp;10-25 14:10</span>
+            <i> > </i>
+        </div>
+    </div>
+
+</div>
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+
+        <div class="carousel-inner" role="listbox">
+            <script type="text/html" id="circle">
+                {{each result as value}}
+                <div class="item" bb={{value.couponProductId}}>
+                    {{#value.couponProductImg}}
+                </div>
+                {{/each}}
+            </script>
+        </div>
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+<section id="footer">
+
+    <div class="footer1">
+        <div class="denglu"><a href=""></a>登录</div>
+        <div class="zhuce"><a href=""></a>注册</div>
+        <div class="fanhui"><a href=""></a>返回顶部</div>
+    </div>
+    <div class="footer2">
+        <p class="p1"><a href="" class="shouji">手机APP下载</a>&nbsp;慢慢买手机版&nbsp;<a href="">--掌上比价平台</a></p>
+        <p class="p2">m.manmanbuy.com</p>
+    </div>
+</section>
+<script type="text/html" id="ken">
+    {{each result as value}}
+    <div class="media" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" >
+        <a href="#" aa={{value.couponProductId}}></a>
+        <div class="media-left media-middle">
+            {{#value.couponProductImg}}
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{value.couponProductName}}</h4>
+            {{value.couponProductTime}}
+        </div>
+    </div>
+    {{/each}}
+</script>
+<!--js文件 注意引入的依赖关系-->
+<script src="./js/jquery.js"></script>
+<script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="./js/couponproduct.js"></script>
+<script src="./js/template.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Document</title>
+    <link rel="stylesheet/less" href="./css/index.less">
+    <link rel="stylesheet/less" href="./css/inlanddiscount.less"/>
+    <script type="text/javascript" src="./lib/less/less.js"></script>
+</head>
+<body>
+<header id="header">
+    <a href="#" class="logo">
+        <img src="images/header_logo.png" alt="" class="lo" />
+    </a>
+    <a href="#" class="app">
+        <img src="images/header_app.png" alt="" class="ap"/>
+    </a>
+</header>
+<section id="prot">
+            <div class="innnt">
+                <ul>
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<div class="img">-->
+                                <!--<img src="./images/55d2cf3eNc2d117d0.jpg" alt=""/>-->
+                            <!--</div>-->
+                            <!--<div class="wen">-->
+                                <!--西域美农新疆特产五星和田红枣250g*2-->
+                            <!--</div>-->
+                            <!--<div class="qian">-->
+                                <!--<span>-->
+                                <!--19.8元(5件99元)-->
+                            <!--</span>-->
+                                <!--<span>京东商城 | 10-22 13:28</span>-->
+                            <!--</div>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<div class="img">-->
+                                <!--<img src="./images/55d2cf3eNc2d117d0.jpg" alt=""/>-->
+                            <!--</div>-->
+                            <!--<div class="wen">-->
+                                <!--西域美农新疆特产五星和田红枣250g*2-->
+                            <!--</div>-->
+                            <!--<div class="qian">-->
+                                <!--<span>-->
+                                <!--19.8元(5件99元)-->
+                            <!--</span>-->
+                                <!--<span>京东商城 | 10-22 13:28</span>-->
+                            <!--</div>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<div class="img">-->
+                                <!--<img src="./images/55d2cf3eNc2d117d0.jpg" alt=""/>-->
+                            <!--</div>-->
+                            <!--<div class="wen">-->
+                                <!--西域美农新疆特产五星和田红枣250g*2-->
+                            <!--</div>-->
+                            <!--<div class="qian">-->
+                                <!--<span>-->
+                                <!--19.8元(5件99元)-->
+                            <!--</span>-->
+                                <!--<span>京东商城 | 10-22 13:28</span>-->
+                            <!--</div>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<div class="img">-->
+                                <!--<img src="./images/55d2cf3eNc2d117d0.jpg" alt=""/>-->
+                            <!--</div>-->
+                            <!--<div class="wen">-->
+                                <!--西域美农新疆特产五星和田红枣250g*2-->
+                            <!--</div>-->
+                            <!--<div class="qian">-->
+                                <!--<span>-->
+                                <!--19.8元(5件99元)-->
+                            <!--</span>-->
+                                <!--<span>京东商城 | 10-22 13:28</span>-->
+                            <!--</div>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+    <section id="footer">
+        <div class="fhD">
+            <ul>
+                <li><a href="#">登录</a></li>
+                <li><a href="#">注册</a></li>
+                <li><a href="#header">
+                    <img src="images/top.jpg" alt=""/>
+                    返回顶部</a>
+                </li>
+            </ul>
+        </div>
+        <div class="app">
+            <div class="cen">
+                <span>手机下载APP 慢慢买手机版 --掌上比价平台</span>
+            </div>
+            <p>m.manmanbuy.com</p>
+        </div>
+    </section>
+</section>
+<script type="text/html" id="zao">
+            {{each result as value}}
+
+            <li>
+                <a href="discount.html?productid={{value.productId}}">
+                    <div class="img">
+                        {{#value.productImg}}
+                    </div>
+                    <div class="wen">
+                      {{value.productName}}
+                    </div>
+                    <div class="qian">
+                                <span>
+                                {{value.productPrice}}
+                            </span>
+                        <span>{{value.productTime}}</span>
+                    </div>
+                </a>
+            </li>
+
+            {{/each}}
+</script>
+<script src="./lib/template.js"></script>
+<script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="js/inlan.js"></script>
+</body>
+</html>

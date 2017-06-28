@@ -1,0 +1,176 @@
+#header {
+  height: 50px;
+}
+.mai {
+  padding: 4px 10px;
+}
+.mai > .container .riwa h3 {
+  font-size: 20px;
+  margin: 10px auto 5px auto;
+  font-weight: 800;
+  text-align: left;
+  text-align-last: left;
+  word-break: break-all;
+  color: #5a5a5a;
+  line-height: normal;
+}
+.mai > .container > .uli {
+  margin: 12px auto;
+}
+.mai > .container > .uli ul {
+  padding-left: 10px;
+}
+.mai > .container > .uli ul li {
+  float: left;
+  font-size: 12px;
+  color: #999;
+}
+.mai .right {
+  float: right;
+  width: 120px;
+  margin: 12px auto auto 10px;
+}
+.mai span img {
+  width: 110px;
+  height: 100px;
+}
+.mai p {
+  word-break: break-all;
+  line-height: 24px;
+  margin: 6px auto;
+  color: #606060;
+  font-size: 16px;
+}
+.mai .tent span {
+  text-align: center;
+  position: relative;
+  right: 0;
+}
+.mai .tent span span {
+  display: inline-block;
+}
+.mai .tent .ffff #disstorck {
+  margin: 0 auto;
+  margin-top: 8px;
+}
+.mai .tent .ffff #disstorck li {
+  display: block;
+  width: 20%;
+  margin: 0 auto;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
+  border-color: #f1f1f1 #f1f1f1 #dbdbdb #f1f1f1;
+  border-width: 0px 1px 1px 1px;
+  background-color: #ffffff;
+  padding: 0px 10px;
+}
+.mai .tent .ffff #disstorck li span {
+  border-bottom: 1px dotted #c0c0c0;
+  display: block;
+  padding: 0px 10px;
+  text-align: left;
+  font-size: 12px;
+}
+.mai .tent .ffff #disstorck li span strong {
+  float: right;
+  font-weight: 200;
+  color: #f27b04;
+}
+.mai .golink a {
+  display: block;
+  margin: 20px 10px;
+  background: #FF9000;
+  height: 30px;
+  border-radius: 4px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #ffffff;
+}
+.mai .jd img {
+  width: 100%;
+  margin: 0 auto;
+}
+.mai .cu-content-pl {
+  background-color: #ffffff;
+}
+.mai .cu-content-pl .tit {
+  padding: 10px;
+}
+.mai .cu-content-pl .form {
+  border: 2px solid #eceaeb;
+  width: 98%;
+  position: relative;
+}
+.mai .cu-content-pl .form #ctl00_ContentBody_txt_nr {
+  width: 100%;
+  resize: none;
+  overflow-x: hidden;
+  overflow-y: auto ;
+  border: none;
+  line-height: 22px;
+  font-size: 14px;
+  height: 68px;
+  outline: 0;
+  position: relative;
+  padding: 4px 0 0 4px;
+}
+.mai .cu-content-pl .form .ctrl {
+  border: solid 1px #f2f2f2;
+  background-color: #fbfbfb;
+  width: 100%;
+  height: 36px;
+}
+.mai .cu-content-pl .form .ctrl input {
+  width: 100px;
+  height: 39px;
+  color: #ffffff;
+  font-size: 16px;
+  border-left: 0;
+  border-top: 0;
+  background-color: #FF9000;
+  position: absolute;
+  border: 2px solid #FF9000;
+  right: -2px;
+  bottom: -2px;
+  outline: none;
+}
+.mai .list ul li {
+  padding: 18px 10px ;
+  background-color: #ffffff;
+}
+.mai .list ul li .userimg {
+  float: left;
+}
+.mai .list ul li .userimg img {
+  width: 40px;
+  height: 40px;
+  background-position: top;
+  border-radius: 20px;
+}
+.mai .list ul li .con {
+  overflow: hidden;
+  padding-left: 10px;
+}
+.mai .list ul li .con .name .username {
+  float: left;
+  color: #5997c0;
+  font-size: 13px !important;
+}
+.mai .list ul li .con .name .time {
+  float: right;
+  font-size: 13px !important;
+  color: #999999;
+}
+.mai .list ul li .con .content {
+  word-break: break-all;
+  font-size: 15px!important ;
+  color: #606060;
+  line-height: 20px;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}

@@ -1,0 +1,48 @@
+#recommen .recommen-list .media a img {
+  width: 100px;
+  height: 100px;
+}
+.prodocut-option {
+  padding: 10px;
+  position: relative;
+}
+.prodocut-option > .page-prev {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 1;
+}
+.prodocut-option > .page-next {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 1;
+}
+.prodocut-option > .dropdown {
+  text-align: center;
+}
+.prodocut-option > .dropdown > a {
+  height: 34px;
+  display: inline-block;
+  line-height: 34px;
+  padding: 0 20px;
+  width: 100px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.prodocut-option > .dropdown > .dropdown-menu {
+  max-width: 100px;
+  min-width: 100px;
+  padding: 0;
+  margin: 0;
+  left: 50%;
+  margin-left: -50px;
+}
+.prodocut-option > .dropdown > .dropdown-menu > li {
+  max-width: 100px;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #ccc;
+}

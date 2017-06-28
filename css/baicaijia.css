@@ -1,0 +1,181 @@
+.coupon-title .bcjbody {
+  height: 38px;
+  display: -webkit-box;
+}
+.coupon-title .bcjbody .bcj-title {
+  width: 100%;
+  height: 40px;
+  background-color: #ffffff;
+}
+.coupon-title .bcjbody .bcj-title .ul-wapper {
+  width: 100%;
+  overflow: hidden;
+}
+.coupon-title .bcjbody .bcj-title .ul-wapper ul {
+  width: 1000px;
+}
+.coupon-title .bcjbody .bcj-title .ul-wapper li {
+  float: left;
+  line-height: 36px;
+  height: 38px;
+  font-size: 14px;
+}
+.coupon-title .bcjbody .bcj-title .ul-wapper li a {
+  margin: 0 12px;
+  float: left;
+}
+.coupon-title .media {
+  margin-top: 7px;
+}
+.coupon-title .media ul li {
+  margin: 6px auto;
+  background-color: #ffffff;
+  position: relative;
+  padding: 10px 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.coupon-title .media ul li .left {
+  width: 135px;
+  float: left;
+  height: 130px;
+}
+.coupon-title .media ul li .left img {
+  width: 130px;
+  height: 130px;
+  border: none;
+}
+.coupon-title .media ul li .right i {
+  height: auto;
+}
+.coupon-title .media ul li .right .t {
+  min-height: 28px;
+  max-height: 40px;
+  line-height: 1.5;
+  font-weight: 400;
+  text-align-last: left;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.coupon-title .media ul li .right .pr {
+  font-size: 24px;
+  color: #fc353a;
+  margin-top: 4px;
+  height: auto;
+  overflow: hidden;
+}
+.coupon-title .media ul li .right .pr em {
+  font-style: normal;
+  font-size: 12px;
+  vertical-align: middle;
+  color: red;
+}
+.coupon-title .media ul li .right .pr del {
+  color: #cccccc;
+  font-size: 12px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+.coupon-title .media ul li .right .o .bar {
+  height: 25px;
+  overflow: hidden;
+}
+.coupon-title .media ul li .right .o .bar .bar {
+  height: 25px;
+  overflow: hidden;
+}
+.coupon-title .media ul li .right .o .bar a {
+  display: block;
+  position: absolute;
+  width: 120px;
+  height: 60px;
+  z-index: 0;
+  bottom: 0px;
+  left: 130px;
+  z-index: 3;
+}
+.coupon-title .media ul li .right .o .bar i {
+  position: relative;
+  box-sizing: border-box;
+  width: 82px;
+  height: 14px;
+  border: 1px solid #fc353a;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 900;
+  background: #ffb7b7;
+  text-align: center;
+  overflow: hidden;
+  display: inline-block;
+}
+.coupon-title .media ul li .right .o .bar i span {
+  font-size: 12px;
+  line-height: 11px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.coupon-title .media ul li .right .o .bar b {
+  font-weight: normal;
+  font-size: 12px;
+  color: #999999;
+  vertical-align: 3px;
+  margin-left: 10px;
+  color: #fc353a;
+}
+.coupon-title .media ul li .right .b {
+  zoom: 1;
+}
+.coupon-title .media ul li .right .b .q {
+  float: left;
+}
+.coupon-title .media ul li .right .b .q a {
+  border: 1px dotted #e4393c;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  display: block;
+  padding: 0px 5px;
+  font-size: 12px;
+  color: #e4393c;
+  position: relative;
+  z-index: 1;
+}
+.coupon-title .media ul li .right .b .g {
+  float: right;
+  margin-right: 5px;
+}
+.coupon-title .media ul li .right .b .g a {
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  display: block;
+  background-color: #ff5e5d;
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 0px 5px;
+  font-size: 12px;
+  position: relative;
+  z-index: 1;
+}
+.active {
+  box-sizing: border-box;
+  border-bottom: 2px solid red;
+  color: red;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+body {
+  background-color: #eeeeee;
+}

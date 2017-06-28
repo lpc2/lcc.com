@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--引入第三方框架UI-->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet/less" href="./css/index.less">
+    <link rel="stylesheet/less" href="./css/barandTitle.css"/>
+    <link rel="stylesheet/less" href="./css/category.less">
+    <script type="text/javascript" src="./lib/less/less.js"></script>
+<body>
+<!--头部-->
+<header id="header">
+    <a href="#" class="logo">
+        <img src="images/header_logo.png" alt="" class="lo"/>
+    </a>
+    <a href="#" class="app">
+        <img src="images/header_app.png" alt="" class="ap"/>
+    </a>
+</header>
+<!--搜索-->
+<section id="search">
+    <form action="">
+        <input type="text" placeholder="请输入你想比价的商品"/>
+        <input type="button" value="搜索"/>
+    </form>
+</section>
+<div class="teevee">
+    <ol class="breadcrumb">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">全部分类</a></li>
+        <li class="active">影院></li>
+    </ol>
+</div>
+
+<div class="rm">
+    热门品牌排行
+</div>
+<div id="panle_gri">
+</div>
+
+<section id="footer">
+    <div class="fhD">
+        <ul>
+            <li><a href="#">登录</a></li>
+            <li><a href="#">注册</a></li>
+            <li><a href="#header">
+                <img src="images/top.jpg" alt=""/>
+                返回顶部</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="app">
+        <div class="cen">
+            <span>手机下载APP 慢慢买手机版 --掌上比价平台</span>
+        </div>
+        <p>m.manmanbuy.com</p>
+    </div>
+</section>
+
+<script type="text/html" id="por">
+    {{each result as value i}}
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button"  data-parent="#accordion"
+                       href="brand.html?brandtitleid={{value.brandTitleId}}"
+                       aria-expanded="true" aria-controls="collapseOne" data-titleid="{{value.titleId}}">
+                        {{value.brandTitle}}
+                        <span><img src="images/下拉.png" alt="<>"/></span>
+                    </a>
+                </h4>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+
+<script type="text/html" id="mixTime">
+    {{each result as value}}
+    <!--productlist.html?categoryid=0&category=电视-->
+    <div class="col-xs-4"><a href="productlist.html?categoryId={{value.categoryId}}">{{value.category}}</a></div>
+    {{/each}}
+</script>
+<script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="./lib/template.js"></script>
+<script src="./js/barandTitle.js"></script>
+
+</body>
+
+</html>

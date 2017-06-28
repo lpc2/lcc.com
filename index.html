@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--引入第三方框架UI-->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet/less" href="./css/index.less">
+    <script type="text/javascript" src="./lib/less/less.js"></script>
+    <title>慢慢买</title>
+</head>
+<body>
+    <!--头部-->
+    <header id="header">
+        <a href="#" class="logo">
+            <img src="images/header_logo.png" alt="" class="lo" />
+        </a>
+        <a href="#" class="app">
+            <img src="images/header_app.png" alt="" class="ap"/>
+        </a>
+    </header>
+    <!--搜索-->
+    <section id="search">
+        <form action="">
+            <input type="text" placeholder="请输入你想比价的商品"/>
+            <input type="button" value="搜索" />
+        </form>
+    </section>
+    <!--菜单-->
+
+    <section id="menu">
+            <div class="row">
+            </div>
+    </section>
+    <!--商品推荐-->
+    <section id="recommen">
+            <div class="recommen-title">
+                <h5>超值折扣推荐</h5>
+                <a href="#">
+                    <img src="images/header_app.png" alt=""/>
+                </a>
+            </div>
+            <div class="recommen-list">
+                <!--<div class="media">-->
+                    <!--<a href="#">-->
+                        <!--<img src="" alt=""/>-->
+                    <!--</a>-->
+                    <!--<div class="media_body">-->
+                      <!--<h1>移动端凑单品：海天 鲜味 生抽 1.28L</h1>-->
+                        <!--<span>10.9元</span>-->
+                        <!--<span>京东商城|10-25 13.57</span>-->
+                        <!--</div>-->
+                <!--</div>-->
+            </div>
+        <div class="YH">
+            <a href="#">更多优惠>></a>
+        </div>
+    </section>
+    <!--底部-->
+    <section id="footer">
+        <div class="footer_to">
+            <p>品牌排行</p>
+            <span>></span>
+        </div>
+        <div class="fhD">
+            <ul>
+                <li><a href="#">登录</a></li>
+                <li><a href="#">注册</a></li>
+                <li><a href="#header">
+                    <img src="images/top.jpg" alt=""/>
+                    返回顶部</a>
+                </li>
+            </ul>
+        </div>
+        <div class="app">
+            <div class="cen">
+                <span>手机下载APP 慢慢买手机版 --掌上比价平台</span>
+            </div>
+            <p>m.manmanbuy.com</p>
+        </div>
+    </section>
+
+
+    <!--js文件 注意引入的依赖关系-->
+    <!-- 模板-->
+    <script src="./lib/template.js"></script>
+    <!-- 模板-->
+    <script type="text/html" id="menuTo">
+                <div class="row">
+                    {{each result as value i}}
+                    <div class="col-xs-3">
+                        <a href="{{value.titlehref}}">
+                            <!-- 带上#才会显示-->
+                                {{#value.img}}
+                            <p>{{value.name}}</p>
+                        </a>
+                    </div>
+                    {{/each}}
+                </div>
+   </script>
+
+    <!--商品-->
+    <script type="text/html" id="commodity">
+        {{each result as value i}}
+        <div class="media">
+        <a href="#">
+        {{#value.productImgSm}}
+        </a>
+        <div class="media_body">
+        <h1>{{value.productName}}</h1>
+        <span>{{value.productPinkage}}</span>
+        <span>京东商城|10-25 13.57</span>
+        <span>
+            <img src="images/评论%20(1).png" alt=""/>
+            <i>{{value.productComCount.replace("有","").replace("人评论","")}}</i>
+        </span>
+        </div>
+        </div>
+        {{/each}}
+</script>
+    <script src="./lib/template.js"></script>
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js">  </script>
+    <script src="./js/index.js"></script>
+</body>
+</html>

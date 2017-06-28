@@ -1,0 +1,25 @@
+#panle_gri {
+  margin-bottom: 20px;
+}
+#panle_gri .panel-group {
+  margin-bottom: 0px;
+}
+#panle_gri .panel-group .panel .panel-heading h4 a span img {
+  width: 20px;
+  height: 20px;
+  float: right;
+}
+#panle_gri .panel-group .panel-collapse .panel-body {
+  padding: 0;
+}
+#panle_gri .panel-group .panel-collapse .panel-body .row div {
+  border: 1px solid #ccc;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-left: 0px;
+  border-top: 0px;
+}
+body {
+  background-color: #ffffff;
+}

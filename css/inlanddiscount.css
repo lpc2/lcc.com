@@ -1,0 +1,97 @@
+#prot .innnt {
+  max-width: 960px;
+  background-color: #ffffff;
+  text-align: left;
+  font-size: 14px;
+  margin: 0px auto;
+}
+#prot .innnt ul {
+  display: table;
+  width: 100%;
+  white-space: normal;
+  box-sizing: border-box;
+}
+#prot .innnt ul li {
+  float: left;
+  display: table-cell;
+  padding: 10px 0 0 10px;
+  text-align: center;
+  vertical-align: middle;
+  background: none;
+  width: 50%;
+  background: #FFFFFF;
+  border: 1px solid #eeeeee;
+  border-image: url(data:image/gif;base64,R0lGODlhBQAFAIABAN3d3f///yH5BAEAAAEALAAAAAAFAAUAAAIHhB9pGatnCgA7) 2 stretch;
+  -webkit-border-image: url(data:image/gif;base64,R0lGODlhBQAFAIABAN3d3f///yH5BAEAAAEALAAAAAAFAAUAAAIHhB9pGatnCgA7) 2 stretch;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-top-width: 0;
+  overflow: hidden;
+}
+#prot .innnt ul li a {
+  display: block;
+}
+#prot .innnt ul li a .img {
+  margin: 10px auto;
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+}
+#prot .innnt ul li a .img img {
+  width: 140px;
+  height: 140px;
+}
+#prot .innnt ul li .wen {
+  color: #333333;
+  padding: 0 8px;
+  font-size: 14px;
+  text-align: left;
+  text-align-last: left;
+  line-height: 18px;
+  height: 36px;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+#prot .innnt ul li .qian {
+  font-size: 14px;
+  text-align-last: left;
+  text-align: left;
+  display: inline-block;
+  padding-right: 140px;
+  color: #ff6c00;
+  float: left;
+  padding-left: 10px;
+}
+#prot .innnt ul li .qian span {
+  display: block;
+  width: 130px;
+}
+#prot .innnt ul li .qian span:nth-child(2) {
+  color: #a1a1a1;
+  font-size: 12px;
+  text-align: left;
+  padding-top: 5px;
+}
+#prot .innnt ul li .info {
+  padding-right: 140px;
+  display: block;
+  padding-left: 8px;
+}
+#prot .innnt ul li .info span {
+  color: #a1a1a1;
+  font-size: 12px;
+  text-align: left;
+  display: block;
+}
+@media (min-width: 600px) {
+  .innnt ul li {
+    height: 400px;
+  }
+}
+body {
+  height: 0px;
+}

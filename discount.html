@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Document</title>
+    <link rel="stylesheet/less" href="./css/index.less">
+    <link rel="stylesheet/less" href="./css/discount.less"/>
+    <link rel="stylesheet/less" href="./css/moneyproduct.css"/>
+    <script type="text/javascript" src="./lib/less/less.js"></script>
+</head>
+<body>
+<header id="header">
+    <h1>国内折扣</h1>
+</header>
+<main class="mai">
+</main>
+</body>
+<script type="text/html" id="cen">
+    {{each result as value}}
+    <div class="container">
+        <div class="riwa">
+            <h3> {{value.productName}}</h3>
+        </div>
+        <div class="uli">
+            <div>
+               {{value.productPrice}}
+            </div>
+            <ul>
+                <li>{{value.productFrom}}</li>
+                <li>{{value.productTime}}</li>
+                <li>{{value.productTips}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="tent">
+            <span class="spams">
+                 <div style="display: block">
+                     <!--"""-->
+                     <!--"'"-->
+                     <span></span>
+                     <div class="ffff">
+                         {{#value.productCity}}
+                     </div>
+                 </div>
+            </span>
+    </div>
+    <div>
+        {{value.productInfo}}
+    </div>
+    <div>
+        {{#value.productImg}}
+    </div>
+    <div class="golink">
+        <a href="redirect.aspx?tjid=521575&amp;y=cu_share" target="_blank"><i class="icon-gobuy"></i>前往购买</a>
+    </div>
+    <div class="jd">
+        <img src="images/mmbweixin2.png" alt=""/>
+    </div>
+    {{#value.productComment}}
+    <section id="footer">
+        <div class="fhD">
+            <ul>
+                <li><a href="#">登录</a></li>
+                <li><a href="#">注册</a></li>
+                <li><a href="#header">
+                    <img src="images/top.jpg" alt=""/>
+                    返回顶部</a>
+                </li>
+            </ul>
+        </div>
+        <div class="app">
+            <div class="cen">
+                <span>手机下载APP 慢慢买手机版 --掌上比价平台</span>
+            </div>
+            <p>m.manmanbuy.com</p>
+        </div>
+    </section>
+    {{/each}}
+</script>
+<script src="./lib/template.js"></script>
+<script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    $(function () {
+        var producti = getQueryString("productid");
+        productCity(producti);
+        function productCity(producti) {
+            $.ajax({
+                url: "http://127.0.0.1:3000/api/getdiscountproduct",
+                data: {"productid": producti},
+                success: function (data) {
+                    console.log(data);
+                    var html=template("cen",data);
+                    $(".mai").html(html)
+                }
+            })
+        }
+
+
+        function getQueryString(name) {
+            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return null;
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet/less" href="./css/moneyctrl.less"/>
+    <link rel="stylesheet/less" href="./css/index.less">
+    <link rel="stylesheet/less" href="./css/productlist.less"/>
+    <script type="text/javascript" src="./lib/less/less.js"></script>
+</head>
+<body>
+<!--头部-->
+            <header id="header">
+                <h4>省钱控</h4>
+            </header>
+<!--搜索-->
+<section id="recommen">
+    <div class="recommen-list">
+        <!--<div class="media">-->
+        <!--<a href="#">-->
+        <!--<img src="" alt=""/>-->
+        <!--</a>-->
+        <!--<div class="media_body">-->
+        <!--<h1>移动端凑单品：海天 鲜味 生抽 1.28L</h1>-->
+        <!--<span>10.9元</span>-->
+        <!--<span>京东商城|10-25 13.57</span>-->
+        <!--<span><img src="images/评论%20(1).png" alt=""/></span>-->
+        <!--</div>-->
+        <!--</div>-->
+    </div>
+</section>
+<div class="prodocut-option clearfix">
+    <!-- <input type="button" value="上一页" class="btn btn-default pull-left"> -->
+    <a href="#" class="btn btn-default page-prev">上一页</a>
+    <a href="#" class="btn btn-default page-next">下一页</a>
+    <!-- <input type="button" value="下一页" class="btn btn-default pull-right"> -->
+    <div class="dropdown">
+        <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            第一页
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li>第一页</li>
+            <li>第二页</li>
+            <li>第三页</li>
+        </ul>
+    </div>
+</div>
+<section id="footer">
+    <!--<div class="footer_to">-->
+    <!--<p>品牌排行</p>-->
+    <!--<span>></span>-->
+    <!--</div>-->
+    <div class="fhD">
+        <ul>
+            <li><a href="#">登录</a></li>
+            <li><a href="#">注册</a></li>
+            <li><a href="#header">
+                <img src="images/top.jpg" alt=""/>
+                返回顶部</a>
+            </li>
+        </ul>
+    </div>
+    <div class="app">
+        <div class="cen">
+            <span>
+                手机下载APP 慢慢买手机版 --掌上比价平台</span>
+        </div>
+        <p>m.manmanbuy.com</p>
+    </div>
+</section>
+</body>
+<script type="text/html" id="productCity">
+            {{each result as value}}
+            <div class="recommen-list">
+            <div class="media">
+            <a href="#">
+            <!--<img src="" alt=""/>-->
+                {{#value.productImgSm}}
+            </a>
+            <div class="media_body">
+            <h1>
+                <a href="moneyproduct.html?productid={{value.productId}}">
+                {{value.productName}}
+            </a>
+            </h1>
+            <span>{{value.productPinkage}}</span>
+            <span>{{value.productFrom}}|{{value.productTime}}</span>
+            <span>
+             <img src="images/评论%20(1).png" alt=""/>
+             <i>{{value.productComCount.replace("有","").replace("人评论","")}}</i>
+            </span>
+            </div>
+            </div>
+            </div>
+            {{/each}}
+</script>
+<script src="./lib/template.js"></script>
+<script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    $(function(){
+            var pagei=getQueryString("pageid")||1;
+        pageid(pagei);
+        function  pageid(pagei){
+            $.ajax({
+                url:'http://127.0.0.1:3000/api/getmoneyctrl',
+                data:{"pageid":pagei},
+                success:function(data){
+                    console.log(data);
+                    var html=template("productCity",data);
+                    console.log(html);
+                    $("#recommen>.recommen-list").html(html);
+                    var ye =Math.ceil(data.totalCount/data.pagesize);
+                    console.log(ye);
+                    var pageli="";
+                    for(var i=0; i<ye; i++){
+                        //var url="";
+                        var url = "moneyctrl.html?pageid=" + (i + 1);
+                        console.log(url);
+                        pageli += "<li><a href=" + url + ">第" + (i + 1) + "/" + (ye) + "页</a></li>";
+                    }
+                    $('#dLabel').html("第" + pagei + "页" + '<span class="caret"></span>');
+                    if (pageid <= 1) {
+                        pageid = 2;
+                    } else if (pageid >= ye) {
+                        //如果当前页数已经到了第最后一页 给当前页数变成最后一页 - 1  3+1 == 4
+                        pageid = ye - 1;
+                    }
+                    var prevUrl = "moneyctrl.html?pageid=" + (pagei - 1);
+                    var nextUrl = "moneyctrl.html?pageid=" + (parseInt(pagei) + 1);
+                    $('.page-prev').attr("href", prevUrl);
+                    $('.page-next').attr("href", nextUrl);
+                    $(".dropdown-menu").html(pageli);
+                }
+            })
+        }
+        function getQueryString(name) {
+            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return null;
+        }
+    })
+</script>
+</html>

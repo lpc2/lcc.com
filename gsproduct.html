@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet/less" href="./css/index.less"/>
+    <link rel="stylesheet/less" href="./css/gsproduct.less"/>
+    <script type="text/javascript" src="./lib/less/less.js"></script>
+</head>
+<body>
+<header id="header">
+                     <h4>凑单品</h4>
+</header>
+<main class="mian">
+    <div class="jd">
+        <ul>
+            <li class="col-xs-4 btn1">京东
+                <i><img src="images/上拉箭头-01.png" alt=""/></i>
+            </li >
+            <li class="col-xs-4 btn2">华北
+                <i><img src="images/上拉箭头-01.png" alt=""/></i>
+            </li>
+            <li class="col-xs-4">1元
+                <i><img src="images/上拉箭头-01.png" alt=""/></i>
+            </li>
+        </ul>
+    </div>
+    <div class="jd_x">
+        <ul>
+            <!--<li><a href="#">京东</a></li>-->
+            <!--<li><a href="#">一号店</a></li>-->
+            <!--<li><a href="#">天猫超市</a></li>-->
+        </ul>
+    </div>
+        <div class="jd_e">
+            <ul>
+
+            </ul>
+        </div>
+
+    <div class="ulbody">
+                <!--<ul>-->
+                        <!--<li>-->
+                    <!--<a href="#">-->
+                        <!--<div>-->
+                            <!--<img src="images/55d2cf3eNc2d117d0.jpg" alt=""/>-->
+                        <!--</div>-->
+                        <!--<div>廿一客(21cake)专用餐具 1人份(不单独配送)</div>-->
+                        <!--<div class=" clearfix">-->
+                            <!--<span>￥0.50</span>-->
+                            <!--<span>去凑单</span>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                <!--</li>-->
+                        <!--<li >-->
+                        <!--<a href="#">-->
+                            <!--<div>-->
+                                <!--<img src="images/55d2cf3eNc2d117d0.jpg" alt=""/>-->
+                            <!--</div>-->
+                            <!--<div>廿一客(21cake)专用餐具 1人份(不单独配送)</div>-->
+                            <!--<div class="clearfix    ">-->
+                                <!--<span>￥0.50</span>-->
+                                <!--<span>去凑单</span>-->
+                            <!--</div>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+    </div>
+</main>
+</body>
+<script type="text/html" id="jd_x">
+               {{each result as value}}
+                <li><a href="#" data-shopId="{{value.shopId}}">{{value.shopName}}</a></li>
+                {{/each}}
+</script>
+<script type="text/html" id="jd_e">
+    {{each result as value}}
+    <li><a href="#" data-areid="{{value.areaId}}">{{value.areaName}}</a></li>
+    {{/each}}
+</script>
+<script type="text/html" id="ulbody">
+    <ul>
+    {{each result as value}}
+        <li>
+                    <a href="#">
+                    <div>
+                    <img src="{{#value.productImg}}" alt=""/>
+                    </div>
+                    <div>{{value.productName}}</div>
+                    <div class=" clearfix">
+                    <span>{{value.productPrice}}</span>
+                    <span>去凑单</span>
+                    </div>
+                    </a>
+        </li>
+    {{/each}}
+    </ul>
+</script>
+<script src="./lib/template.js"></script>
+<script src="./lib/jquery/jquery.min.js"></script>
+<script>
+    $(function(){
+        get();
+        function get(){
+            $.ajax({
+                url:"http://127.0.0.1:3000/api/getgsshop",
+                success:function(data){
+                    var html=template("jd_x",data);
+                     $(".jd_x>ul").html(html);
+                    console.log(data);
+                    $(".btn1").click(function(){
+                        $(".jd_x").toggle();
+                    });
+                    $(".btn2").click(function(){
+                        if($(".jd_x").css("display")=="block"){
+                            $(".jd_x").css("display","none");
+                        }
+                        $(".jd_e").toggle();
+                    });
+
+                }
+            })
+        };
+
+        ge();
+        function ge(){
+            $.ajax({
+                url:'http://127.0.0.1:3000/api/getgsshoparea',
+                success:function(data){
+                    console.log(data);
+                    var html=template("jd_e",data);
+                    $(".jd_e>ul").html(html);
+                }
+            })
+        }
+        var shopid=0;
+        var areaid=0;
+         quy(shopid,areaid);
+        function quy(shopid,areaid){
+            $.ajax({
+                url:'http://127.0.0.1:3000/api/getgsproduct',
+                data:{"shopid":shopid,"areaid":areaid},
+                success:function(data){
+                    console.log(data);
+                    var htm=template("ulbody",data);
+                    $(".ulbody").html(htm);
+                    $(".jd_x>ul>li>a").on("click",function(){
+                        var pp= $(this).html();
+                        $(".jd>ul>li").eq(0).html(pp+'<i><img src="images/上拉箭头-01.png" alt=""></i>');
+                        if($(".jd_x").css("display")=="block"){
+                            $(".jd_x").css("display","none");
+                        }
+                        var btn=$(this).attr("data-shopId");
+                        shopid=btn;
+                        console.log(btn);
+                        $.ajax({
+                            url:'http://127.0.0.1:3000/api/getgsproduct',
+                            data:{"shopid":btn,"areaid":areaid},
+                            success:function(data){
+                                var htm=template("ulbody",data);
+                                $(".ulbody").html(htm);
+                            }
+                        })
+                    });
+                    $(".jd_e>ul>li>a").on("click",function(){
+                        if($(".jd_e").css("display")=="block"){
+                            $(".jd_e").css("display","none")
+                        }
+                        var btn1=$(this).attr("data-areid");
+                        $.ajax({
+                            url:'http://127.0.0.1:3000/api/getgsproduct',
+                            data:{"shopid":shopid,"areaid":btn1},
+                            success:function(data){
+                                var htm=template("ulbody",data);
+                                $(".ulbody").html(htm);
+                            }
+                        })
+                    })
+                }
+            })
+        }
+    })
+</script>
+<script src="./lib/bootstrap/js/bootstrap.min.js">  </script>
+</html>

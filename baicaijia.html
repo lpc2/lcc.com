@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  <link rel="stylesheet/less" href="./css/index.less">
+  <link rel="stylesheet/less" href="./css/baicaijia.less"/>
+  <script type="text/javascript" src="./lib/less/less.js"></script>
+</head>
+<body>
+<header id="header">
+     <div>
+       <h1>
+         白菜价-淘宝内部券
+       </h1>
+     </div>
+</header>
+<main class="coupon-title">
+       <div class="bcjbody">
+         <div class="bcj-title">
+           <div class="ul-wapper">
+                <ul class="ule">
+                  <!--<li><a href="#">全部</a></li>-->
+                  <!--<li><a href="#">热销</a></li>-->
+                  <!--<li><a href="#">9块包邮</a></li>-->
+                  <!--<li><a href="#">19块包邮</a></li>-->
+                  <!--<li><a href="#">数码家电</a></li>-->
+                  <!--<li><a href="#">居家</a></li>-->
+                  <!--<li><a href="#">美食</a></li>-->
+                  <!--<li><a href="#">男装</a></li>-->
+                  <!--<li><a href="#">女装</a></li>-->
+                  <!--<li><a href="#">鞋包搭配</a></li>-->
+                  <!--<li><a href="#">文本</a></li>-->
+                  <!--<li><a href="#">母婴</a></li>-->
+                  <!--<li><a href="#">美妆</a></li>-->
+                </ul>
+           </div>
+         </div>
+       </div>
+  <div class="media clearfix">
+            <ul>
+              <!--<li>-->
+                <!--<div class="left clearfix">-->
+                  <!--<img src="images/201610001412282758.jpg" alt=""/>-->
+                <!--</div>-->
+                <!--<div class="right clearfix">-->
+                     <!--<div class="i ">-->
+                       <!--<span>-->
+                           <!--[包邮]双十一红包 今日开启-->
+                       <!--</span>-->
+                       <!--<div class="pr">-->
+                         <!--<em>￥0.0</em>-->
+                         <!--<del>￥0</del>-->
+                       <!--</div>-->
+                     <!--</div>-->
+                  <!--<div class="o">-->
+                      <!--<div class="bar">-->
+                        <!--<em>-->
+                          <!--<span>1%</span>-->
+                        <!--</em>-->
+                          <!--<span>已领82张</span>-->
+                      <!--</div>-->
+                      <!--<div class="b">-->
+                        <!--<div class="q">-->
+                          <!--<a href="#">-->
+                            <!--点击领取15元优惠卷-->
+                          <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="g">-->
+                          <!--<a href="#">下单链接</a>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+              <!--</li>-->
+            </ul>
+  </div>
+</main>
+<section id="footer">
+
+    <div class="fhD">
+        <ul>
+            <li><a href="#">登录</a></li>
+            <li><a href="#">注册</a></li>
+            <li><a href="#header">
+                <img src="images/top.jpg" alt=""/>
+                返回顶部</a>
+            </li>
+        </ul>
+    </div>
+    <div class="app">
+        <div class="cen">
+            <span>手机下载APP 慢慢买手机版 --掌上比价平台</span>
+        </div>
+        <p>m.manmanbuy.com</p>
+    </div>
+</section>
+</body>
+
+<script type="text/html" id="commodity">
+                {{each result as value i}}
+                      <li class=""><a href="#" data-titleId={{value.titleId}} class="">{{value.title}}</a></li>
+            {{/each}}
+</script>
+
+<script type="text/html" id="ullis">
+            {{each result as value}}
+            <li>
+                <div class="left clearfix">
+                   {{#value.productImg}}
+
+                </div>
+                <div class="right clearfix">
+                    <div class="i ">
+                            <div class="t">
+                                {{#value.productName}}
+                            </div>
+                        <div class="pr">
+                            <!--<em>￥0.0</em>-->
+                            <!--<del>￥0</del>-->
+                            {{#value.productPrice}}
+                        </div>
+                    </div>
+                    <div class="o">
+                        <div class="bar clearfix">
+                            {{#value.productCouponRemain}}
+                        </div>
+
+                        <div class="b clearfix">
+                            <div class="q">
+                                <!--<a href="#">-->
+                                    <!--点击领取15元优惠卷-->
+                                <!--</a>-->
+                                {{#value.productCoupon}}
+                            </div>
+                            <div class="g">
+                               {{#value.productHref}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+</script>
+<script type="text/html" id=""></script>
+<script src="./lib/template.js"></script>
+<script src="./lib/jquery/jquery.min.js"></script>
+<script src="./js/baicaijia.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script>
+         get();
+        function get(){
+          $.ajax({
+             url:"http://127.0.0.1:3000/api/getbaicaijiatitle",
+                success:function(data){
+                  console.log(data);
+                    var html=template("commodity",data);
+                    $(".ule").html(html);
+                    var ulwidth=0;
+                    var lis=$(".bcj-title").find(".ul-wapper>ul>li");
+                    for(var i=0; i<lis.length; i++){
+                        ulwidth+=$(lis[i]).width();
+                    }
+                    $(".ul-wapper>ul").css("width",ulwidth+"px");
+                    $(".ul-wapper>ul>li").eq(0).addClass("active");
+                    $(".ul-wapper>ul>li>a").on("click",function(){
+                        $(".ul-wapper>ul>li").removeClass("active");
+                        $(this).parent().addClass("active");
+                        var btn=$(this).attr("data-titleid");
+                    });
+
+            }
+          });
+
+        }
+</script>
+<script src="js/iscroll.js"></script>
+<script>
+  var myScroll = new IScroll('.ul-wapper',{
+    /*设置水平滑动，不允许垂直滑动*/
+    scrollX: true, scrollY: false
+  });
+</script>
+</html>
